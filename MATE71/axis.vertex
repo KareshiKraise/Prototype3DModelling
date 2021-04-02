@@ -1,0 +1,13 @@
+#version 330
+
+layout(location = 0) in vec3 aPosition;
+
+uniform mat4 matOrtho;
+
+void main()
+{
+	gl_Position.xy = (matOrtho * vec4(aPosition, 1.0)).xy;
+	gl_Position.w  = 1.0; 
+		
+
+}

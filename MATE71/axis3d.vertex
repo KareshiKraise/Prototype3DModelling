@@ -1,0 +1,17 @@
+#version 330
+
+layout(location = 0) in vec3 a3Position;
+layout(location = 1) in vec3 a3Color;
+
+uniform mat4 V;
+uniform mat4 P;
+uniform mat4 M;
+
+out vec3 o_a3Color;
+
+void main()
+{
+	gl_Position = P*V*M * vec4(a3Position, 1.0);
+	o_a3Color = a3Color;
+	
+}

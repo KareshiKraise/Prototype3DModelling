@@ -1,0 +1,26 @@
+#version 330
+
+layout(location = 0) in vec3 sPosition;
+layout(location = 1) in vec3 sNormal;
+layout(location = 2) in vec2 UV;
+
+uniform mat4 V;
+uniform mat4 P;
+uniform mat4 M;
+
+//uniform vec3 viewPos;
+
+
+out vec3 FragPos;
+out vec3 slNormal;
+out vec2 sUV;
+
+void main()
+{
+	gl_Position = (P * V * M) * vec4(sPosition, 1.0);
+
+	FragPos = vec3(M * vec4(sPosition,1.0));
+	slNormal = mat3(transpose(inverse(M))) * sNormal;
+	sUV = UV;
+
+}

@@ -1,0 +1,15 @@
+#version 330
+
+layout(location = 0) in vec2 pPosition;
+
+uniform mat4 pOrtho;
+
+void main()
+{
+	gl_PointSize = 5.0;
+	gl_Position = (pOrtho * vec4(pPosition, 0.0, 1.0));
+	//gl_Position.z = 0.0;
+	//gl_Position.w = 1.0;
+	
+
+}
